@@ -20,6 +20,7 @@ Este projeto visa transformar a presença digital de um escritório de advocacia
     - [x] Botões destacados para "Agendar Teleconsulta" e "Agendar Consulta Presencial".
     - [x] Diálogo de agendamento com seleção de modalidade e forma de pagamento.
 - [x] **Correções Visuais**: Padronização de botões (estilo cápsula) e correção de imagens da equipe.
+- [x] **Ajuste de Responsividade**: Ajuste fino de responsividade e posicionamento do menu mobile.
 
 ---
 
