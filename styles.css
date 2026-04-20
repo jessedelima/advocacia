@@ -25,6 +25,13 @@ body {
     color: var(--dark-gray);
     background-color: var(--pure-white);
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Tipografia elegante */
@@ -77,6 +84,21 @@ p {
     align-items: center;
 }
 
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--pure-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    color: var(--accent-gold);
+}
+
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
@@ -124,6 +146,24 @@ p {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.nav-link.teleconsulta-btn {
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.nav-link.teleconsulta-btn:hover {
+    background: var(--light-gold);
+    transform: translateY(-2px);
+}
+
+.nav-link.teleconsulta-btn::after {
+    display: none;
 }
 
 /* Redes sociais no header */
@@ -176,12 +216,13 @@ p {
 
 /* Hero Section impressionante */
 .hero {
-    background: linear-gradient(rgba(26, 35, 50, 0.8), rgba(44, 62, 80, 0.8)), 
+    background: linear-gradient(rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.9)), 
                 url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 10rem 0 8rem;
     display: flex;
     align-items: center;
     text-align: center;
@@ -214,25 +255,47 @@ p {
     line-height: 1.8;
 }
 
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
 .cta-button {
     display: inline-block;
-    background: linear-gradient(45deg, var(--accent-gold), #f4d03f);
-    color: var(--primary-navy);
-    padding: 1rem 2.5rem;
+    background: var(--accent-gold);
+    color: #000000;
+    padding: 1.2rem 2.5rem;
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
+    border-radius: 100px;
+    font-weight: 700;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     text-transform: uppercase;
     letter-spacing: 1px;
+    min-width: 280px;
+    border: none;
+    text-align: center;
+}
+
+.cta-button.cta-outline {
+    background: var(--accent-gold);
+    color: #000000;
+    border: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.cta-button.cta-outline:hover {
+    background: var(--light-gold);
+    color: #000000;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-heavy);
-    background: linear-gradient(45deg, #f4d03f, var(--accent-gold));
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    background: var(--light-gold);
 }
 
 /* Seções principais */
@@ -660,25 +723,97 @@ p {
 }
 
 /* Responsividade */
+@media (max-width: 992px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--primary-navy);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-link {
+        font-size: 1.5rem;
+    }
+
+    .header-social {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
-        padding: 0 1rem;
+        padding: 0 1.2rem;
     }
     
+    .hero {
+        padding: 6rem 0 4rem;
+    }
+
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        padding: 0 1rem;
+        gap: 0.8rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        min-width: unset;
+        padding: 0.9rem 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
     }
     
-    .nav-menu {
-        display: none;
+    .logo {
+        font-size: 1.3rem;
     }
-    
-    .header-social {
-        gap: 0.5rem;
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
     }
     
     .social-link {
